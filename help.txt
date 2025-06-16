@@ -1,0 +1,46 @@
+Hướng dẫn sử dụng chương trình trợ lý ảo
+
+Các chức năng chính :
+
+    a. Chào hỏi
+    - Nhập: `hi`, `hello`, `chào`, hoặc `xin chào`
+    - Kết quả: Trợ lý sẽ chào lại bạn và hiển thị menu chức năng.
+
+    b. Mở ứng dụng
+    - Nhập: `mở <tên ứng dụng>` hoặc `open <tên ứng dụng>`
+    - Ví dụ:  
+        mở chrome  
+        open word
+    - Kết quả: Ứng dụng tương ứng sẽ được mở nếu tìm thấy trên máy.
+
+    c. Tìm kiếm Google
+    - Nhập câu hỏi hoặc từ khóa có chứa các mẫu như:  
+      `what is`, `how to`, `làm thế nào để`, `tại sao`, ...
+    - Ví dụ:  
+        what is python  
+        làm thế nào để học lập trình
+    - Kết quả: Trợ lý sẽ mở trình duyệt và tìm kiếm trên Google.
+
+    d. Tìm video YouTube
+    - Nhập lệnh có chứa các mẫu như:  
+      `play video`, `find video`, `xem`, `mở video`, ...
+    - Ví dụ:  
+        play video music  
+        tìm video mèo hài hước
+    - Kết quả: Trợ lý sẽ mở YouTube với từ khóa bạn nhập.
+
+    e. Chơi trò giải trí
+    - Nhập: `giải trí`, `trò chơi`, hoặc `entertainment`
+    - Kết quả: Hiện menu các trò chơi như Oẳn tù tì, Xổ số may mắn để bạn lựa chọn.
+
+    f. Trò chuyện đơn giản
+    - Nhập: `nói chuyện`, `trò chuyện`, `chat`, hoặc `talk`
+    - Kết quả: Trợ lý sẽ trò chuyện với bạn bằng các câu hỏi và trả lời đơn giản.
+
+    g. Xem hướng dẫn
+    - Nhập: `help`
+    - Kết quả: Hiển thị nội dung hướng dẫn này.
+
+Thoát chương trình
+- Nhập: `exit` hoặc `quit`
+- Kết quả: Chương trình sẽ dừng lại.
