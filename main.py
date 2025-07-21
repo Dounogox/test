@@ -44,37 +44,37 @@ class CommandProcessor:
         try:
             with open("help.txt", "r", encoding="utf-8") as f:
                 for line in f:
-                    print("Eula :", line.strip())
+                    print("Shorekeeper :", line.strip())
         except Exception as e:
-            print("Eula :", "Không thể đọc file hướng dẫn:", e)
+            print("Shorekeeper :", "Không thể đọc file hướng dẫn:", e)
 
     def execute_command(self, command: str) -> Optional[str]:
         """Thực thi lệnh theo loại phù hợp"""
         command_type = self.detect_command_type(command)
         if command_type == "greeting":
-            print("Eula :", end=" ")
+            print("Shorekeeper :", end=" ")
             hello.chaohoi()
             return None
         elif command_type == "help":
-            print("Eula :", end=" ")
+            print("Shorekeeper :", end=" ")
             self.print_help()
             return None
         elif command_type == "app":
-            print("Eula :", end=" ")
+            print("Shorekeeper :", end=" ")
             app.xu_ly_lenh_mo_app(command)
             return None
         elif command_type == "search":
-            print("Eula :", end=" ")
+            print("Shorekeeper :", end=" ")
             search.tro_ly_tim_kiem(command)
             return None
         elif command_type == "giaitri":
-            print("Eula :", end=" ")
+            print("Shorekeeper :", end=" ")
             giaitri.menu_giaitri()
             return None
         elif command_type == "ai":
             self.ai_chat(command)
             return None
-        print("Eula : Không hiểu lệnh này. Vui lòng thử lại.\n")
+        print("Shorekeeper :", "Không hiểu lệnh này. Vui lòng thử lại.\n")
 
     def process_command_text(self, command: str) -> str:
         import io
@@ -94,10 +94,10 @@ class CommandProcessor:
         else:
             prompt = command
         if not prompt:
-            print("Eula : Bạn cần nhập nội dung câu hỏi.")
+            print("Shorekeeper :", "Bạn cần nhập nội dung câu hỏi.")
             return
         response_text = ai.ask_ai(prompt)
-        print("Eula :", response_text)
+        print("Shorekeeper :", response_text)
 #### ko quan trọng
 def main():
     processor = CommandProcessor()
