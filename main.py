@@ -1,8 +1,8 @@
 import hello
-import talk
 import search
 import app
 import giaitri
+import ai
 from typing import Optional
 
 #thực hiện lệnhlệnh
@@ -12,7 +12,7 @@ class CommandProcessor:
         self.app_patterns = app.tu_khoa_mo_app
         self.greeting_patterns = ["hi", "hello", "chào", "xin chào"]
         self.giaitri_patterns = ["giải trí", "trò chơi", "entertainment"]
-        self.talk_patterns = ["nói chuyện", "trò chuyện", "chat", "talk"]
+        self.ai_patterns = ["ai", "hỏi ai", "chat ai"]
 
     def detect_command_type(self, command: str) -> str:
         """Phát hiện loại lệnh dựa trên từ khóa"""
@@ -34,65 +34,47 @@ class CommandProcessor:
         for pattern in self.giaitri_patterns:
             if pattern in command:
                 return "giaitri"
-        for pattern in self.talk_patterns:
-            if pattern in command:
-                return "talk"
-        return "unknown"
-
-    def show_menu(self):
-        """Hiển thị menu chức năng"""
-        print("Tôi có thể :")
-        print("- Nói chuyện đơn giản")
-        print("- Mở ứng dụng (vd: 'mở chrome')")
-        print("- Tìm kiếm Google (vd: 'what is python')")
-        print("- Tìm video YouTube (vd: 'play video music')")
-        print("- Chơi trò giải trí (vd: 'giải trí', 'trò chơi')")
-        print("- Dùng lệnh \"help\" để xem hướng dẫn\n")
-        print("Nhập 'exit' hoặc 'quit' để thoát\n")
-
-    def get_menu_text(self) -> str:
-        return (
-            "Tôi có thể :\n"
-            "- Nói chuyện đơn giản\n"
-            "- Mở ứng dụng (vd: 'mở chrome')\n"
-            "- Tìm kiếm Google (vd: 'what is python')\n"
-            "- Tìm video YouTube (vd: 'play video music')\n"
-            "- Chơi trò giải trí (vd: 'giải trí', 'trò chơi')\n"
-            "- Dùng lệnh \"help\" để xem hướng dẫn\n"
-            "Nhập 'exit' hoặc 'quit' để thoát\n"
-        )
+        for pattern in self.ai_patterns:
+            if command.startswith(pattern):
+                return "ai"
+        return "ai"
 
     def print_help(self):
-            """In nội dung file help.txt ra màn hình"""
-            try:
-                with open("help.txt", "r", encoding="utf-8") as f:
-                    print(f.read())
-            except Exception as e:
-                print("Không thể đọc file hướng dẫn:", e)
+        """In nội dung file help.txt ra màn hình"""
+        try:
+            with open("help.txt", "r", encoding="utf-8") as f:
+                for line in f:
+                    print("Eula :", line.strip())
+        except Exception as e:
+            print("Eula :", "Không thể đọc file hướng dẫn:", e)
 
     def execute_command(self, command: str) -> Optional[str]:
         """Thực thi lệnh theo loại phù hợp"""
         command_type = self.detect_command_type(command)
         if command_type == "greeting":
+            print("Eula :", end=" ")
             hello.chaohoi()
-            self.show_menu()
             return None
         elif command_type == "help":
+            print("Eula :", end=" ")
             self.print_help()
             return None
         elif command_type == "app":
+            print("Eula :", end=" ")
             app.xu_ly_lenh_mo_app(command)
             return None
         elif command_type == "search":
+            print("Eula :", end=" ")
             search.tro_ly_tim_kiem(command)
             return None
         elif command_type == "giaitri":
+            print("Eula :", end=" ")
             giaitri.menu_giaitri()
             return None
-        elif command_type == "talk":
-            talk.simple_chat()
+        elif command_type == "ai":
+            self.ai_chat(command)
             return None
-        return "\nKhông hiểu lệnh này. Vui lòng thử lại.\n"
+        print("Eula : Không hiểu lệnh này. Vui lòng thử lại.\n")
 
     def process_command_text(self, command: str) -> str:
         import io
@@ -103,16 +85,28 @@ class CommandProcessor:
         sys.stdout = old_stdout
         return mystdout.getvalue()
 
+    def ai_chat(self, command: str):
+        # Nếu bắt đầu bằng từ khóa AI thì bỏ từ khóa đi, còn lại giữ nguyên
+        for pattern in self.ai_patterns:
+            if command.startswith(pattern):
+                prompt = command[len(pattern):].strip()
+                break
+        else:
+            prompt = command
+        if not prompt:
+            print("Eula : Bạn cần nhập nội dung câu hỏi.")
+            return
+        response_text = ai.ask_ai(prompt)
+        print("Eula :", response_text)
 #### ko quan trọng
 def main():
     processor = CommandProcessor()
-    print("Chào mừng bạn!")
-    processor.show_menu()
+    print("Chào mừng bạn!\n")
     while True:
         try:
             command = input("You : ").strip()
             if command.lower() in ["exit", "quit"]:
-                print("\nTạm biệt!")
+                print("\nTạm biệt!\n")
                 break
             result = processor.execute_command(command)
             if result:

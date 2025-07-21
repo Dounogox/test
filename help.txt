@@ -1,6 +1,6 @@
 Hướng dẫn sử dụng chương trình trợ lý ảo
 
-Các chức năng chính :
+Những điều Eula có thể làm hiện tại :
 
     a. Chào hỏi
     - Nhập: `hi`, `hello`, `chào`, hoặc `xin chào`
@@ -34,7 +34,7 @@ Các chức năng chính :
     - Kết quả: Hiện menu các trò chơi như Oẳn tù tì, Xổ số may mắn để bạn lựa chọn.
 
     f. Trò chuyện đơn giản
-    - Nhập: `nói chuyện`, `trò chuyện`, `chat`, hoặc `talk`
+    - Eula có thể nói chuyện như 1 trí tuệ nhân tạotạo
     - Kết quả: Trợ lý sẽ trò chuyện với bạn bằng các câu hỏi và trả lời đơn giản.
 
     g. Xem hướng dẫn

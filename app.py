@@ -103,9 +103,9 @@ def mo_ung_dung_thong_minh(ten_ung_dung: str):
     duong_dan = tim_ung_dung_trong_he_thong(ten_ung_dung)
     if duong_dan:
         subprocess.Popen(duong_dan, shell=True)
-        print(f"\nĐã mở ứng dụng: {ten_ung_dung}\n")
+        print(f"Đã mở ứng dụng {ten_ung_dung}\n")
     else:
-        print(f"\nKhông tìm thấy ứng dụng '{ten_ung_dung}'.\n")
+        print(f"Không tìm thấy ứng dụng '{ten_ung_dung}'.\n")
 
 def xu_ly_lenh_mo_app(cau_lenh: str):
     """
@@ -118,6 +118,6 @@ def xu_ly_lenh_mo_app(cau_lenh: str):
             if ten_app:
                 mo_ung_dung_thong_minh(ten_app)
             else:
-                print("\nBạn chưa nhập tên ứng dụng.\n")
+                print("Bạn chưa nhập tên ứng dụng.\n")
             return
-    print("\nCâu lệnh không chứa từ khóa mở ứng dụng.\n")
+    print("Câu lệnh không chứa từ khóa mở ứng dụng.\n")
