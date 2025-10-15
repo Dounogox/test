@@ -1,7 +1,6 @@
 import hello
 import search
 import app
-import giaitri
 import ai
 from typing import Optional
 
@@ -11,7 +10,6 @@ class CommandProcessor:
         self.search_patterns = search.mau_google + search.mau_youtube
         self.app_patterns = app.tu_khoa_mo_app
         self.greeting_patterns = ["hi", "hello", "chào", "xin chào"]
-        self.giaitri_patterns = ["giải trí", "trò chơi", "entertainment"]
         self.ai_patterns = ["ai", "hỏi ai", "chat ai"]
 
     def detect_command_type(self, command: str) -> str:
@@ -31,9 +29,6 @@ class CommandProcessor:
         for pattern in self.search_patterns:
             if pattern in command:
                 return "search"
-        for pattern in self.giaitri_patterns:
-            if pattern in command:
-                return "giaitri"
         for pattern in self.ai_patterns:
             if command.startswith(pattern):
                 return "ai"
@@ -66,10 +61,6 @@ class CommandProcessor:
         elif command_type == "search":
             print("Shorekeeper :", end=" ")
             search.tro_ly_tim_kiem(command)
-            return None
-        elif command_type == "giaitri":
-            print("Shorekeeper :", end=" ")
-            giaitri.menu_giaitri()
             return None
         elif command_type == "ai":
             self.ai_chat(command)
